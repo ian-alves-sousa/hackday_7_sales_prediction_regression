@@ -188,7 +188,7 @@ Com o modelo e seus parâmetros escolhidos, o mesmo treinou a base completa dos 
 
 ### Passo 10. Apresentação Final
 
-Como a equipe classificou-se para a final (ficamos no TOP 3), foi criado um slide com a explicação dos métodos utilizados para chegar na performance.
+Como a equipe classificou-se para a final (ficamos no TOP 3), foi criado um slide com a explicação dos métodos utilizados para encontrar o menor erro.
 
 # 4. Exploration Data Analysis
 
