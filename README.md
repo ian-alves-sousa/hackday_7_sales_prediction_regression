@@ -51,43 +51,82 @@ Dessa forma, os capítulos de Avaliação dos Resultados do Modelo e Tradução 
 
 ### 1.1 Descrição
 
-Uma empresa que oferece planos de saúde para seus clientes. A equipe do produto está analisando a possibilidade de oferecer um novo produto ao cliente segurador: o seguro de automóveis. À semelhança do seguro de saúde, os clientes deste novo plano de seguro automóvel têm de pagar um valor anual à seguradora para obter um valor segurado pela empresa, destinado aos custos de um eventual acidente ou danos na viatura.
+A EletroPlaza Store é um conglomerado de lojas presente em diversos países do mundo. Apesar da presença online da marca, as vendas são predominantemente físicas. A multinacional atua com eletrônicos, eletrodomésticos e acessórios em geral, oferecendo produtos acessíveis e de qualidade para uma vasta gama de clientes.
 
 ### 1.2 Problema de Negócio
 
-A empresa pesquisou 381.110 clientes sobre seu interesse em adquirir o novo produto, o seguro de automóveis, e quer usar esses dados para ordenar outros 127.038 clientes que não responderam a pesquisa quanto a sua propensão em aderir ao novo seguro ou não. Atualmente a lista é ordenada por um modelo aleatório, com ordenação com idade ou tempo de seguro.
+Após diversos investimentos realizados nos setores de vendas, marketing e desenvolvimento de produtos, a empresa teve um grande salto em seu faturamento no último ano. Porém, junto ao faturamento, vieram novos desafios em tentar entender precisamente como as vendas vão continuar se comportando nas próximas semanas.
 
-Nesse contexto, você foi contratado como Consultor Data Scientist para construir um modelo que prevê se o cliente teria interesse ou não em adquirir o novo seguro de automóvel. Com sua solução, a equipe de vendas espera priorizar os clientes com maior propensão à obtenção do novo produto e, assim, otimizar a campanha fazendo contatos apenas com clientes com maior probabilidade de compra.
+O ano está chegando ao fim e a Black Friday e o Natal estão se aproximando. As vendas tendem a subir exponencialmente ainda mais nessa época e os dados de comparação do ano passado já não servem mais como termômetro para a empresa. Além disso, a equipe de negócio tem uma meta de faturamento e está preocupada se conseguirá alcançá-la. A urgência em entender os possíveis resultados é grande.
 
-Como resultado de sua consultoria, você precisará entregar um relatório contendo algumas análises e respostas para as seguintes perguntas:
+O desafio da sua equipe, formada por cientistas e analistas de dados, é construir uma solução que preveja as vendas semanais das lojas e de seus variados setores para as 5 semanas finais do ano. Deste modo, os gestores da EletroPlaza Store poderão definir planos futuros, organizar estoques, calcular receitas, decidir se farão novos investimentos ou não e onde devem alocar estes novos investimentos, através de campanhas mais eficientes de marketing e vendas.
 
-**- Principais Insights dos atributos mais relevantes dos clientes interessados em adquirir um seguro de automóvel.**
+Os dados disponíveis para a previsão são referentes às vendas realizadas do início do ano vigente até o momento. Cada linha representa um setor específico de uma loja específica naquela determinada semana. São fornecidas diversas informações para análise, inclusive dados externos como temperatura, preço de combustível e taxa de desemprego. Ainda, devido a urgência da solicitação, há diversos dados faltantes na base e a sua equipe não tem tempo hábil o suficiente para coletá-los, devendo buscar soluções alternativas para que mesmo assim consiga realizar previsões eficazes.
 
-**- Qual é a porcentagem de interesse dos clientes em adquirir um seguro de automóvel que a equipe de vendas conseguirá atingir com 20.000 ligações?**
+**Após determinar os valores das vendas, a missão da sua equipe é enviar um arquivo .csv contendo os identificadores de cada registro e os respectivos valores de venda para a equipe de negócio.**
 
-**- Qual é a porcentagem de interesse dos clientes em adquirir um seguro de automóvel que a equipe de vendas conseguirá atingir com 40.000 ligações?**
+### 1.3 Expectativas
 
-**- Quantas ligações a equipe de vendas precisa para atingir 80% dos clientes interessados em contratar um seguro de automóvel?**
+Os gestores da EletroPlaza Store esperam poder:
+
+- Definir planos;
+- Organizar estoques;
+- Calcular receitas;
+- Decidir se farão novos investimentos ou não;
+- Decidir onde devem alocar estes novos investimentos, mediante campanhas mais eficientes de marketing e vendas.
 
 # 2. Base de Dados e Premissas de Negócio
 
 ## 2.1 Base de Dados
 
-O conjunto de dados total possui as informações referentes 381.110 clientes e possuem os seguintes atributos:
-| **Atributos** | **Descrição** |
-| ------------------- | ------------------- |
-| id | ID único que diferencia cada cliente |
-| Gender | Gênero do cliente |
-| Age| Idade do cliente |
-| Driving_License | O cliente não possui Permissão para Dirigir, 1 : O cliente já possui Permissão para Dirigir |
-| Region_Code | Código exclusivo da região do cliente |
-| Previously_Insured | Cliente já tem Seguro de Automóvel, 0 : Cliente não tem Seguro de Automóvel |
-| Vehicle_Age | Idade do Veículo - Menos que 1 ano, entre 1 e 2 anos, mais que 2 anos |
-| Vehicle_Damage | O cliente teve seu veículo danificado no passado. 0 : O cliente não teve seu veículo danificado no passado. |
-| Annual_Premium | O valor que o cliente precisa pagar de segeuro de saúde por ano |
-| Policy_Sales_Channel | Código anônimo para o canal de contato com o cliente, ou seja, por correio, por telefone, pessoalmente, etc. |
-| Vintage | Número de dias, o cliente foi associado à empresa |
-| Response | O cliente está interessado, 0: O cliente não está interessado |
+O conjunto de dados total possui os seguintes arquivos:
+
+**Arquivos**
+
+- stores.csv - características das lojas
+- train.csv - dados de treino
+- features.csv - atributos complementares
+- test.csv - dados de teste
+- sample_submission.csv - exemplo de submissão
+
+Onde cada um apresenta as seguintes features:
+
+**train.csv**
+
+| **Feature**     | **Description**                             |
+| --------------- | ------------------------------------------- |
+| id              | identificador único do registro             |
+| loja            | identificador único da loja                 |
+| setor           | setor específico da loja                    |
+| data            | semana (mês-dia) em que ocorreram as vendas |
+| vendas_semanais | valor total das vendas semanais, em US$     |
+| feriado         | se há feriado ou não na semana              |
+
+**features.csv**
+
+| **Feature**            | **Description**                                                                   |
+| ---------------------- | --------------------------------------------------------------------------------- |
+| loja                   | identificador único da loja                                                       |
+| data                   | semana (mês-dia) em que ocorreram as vendas                                       |
+| temperatura            | temperatura média da loja na semana, em °C                                        |
+| combustivel            | preço médio do combustível na semana, em US$                                      |
+| desconto_1             | desconto promocional especial do tipo 1                                           |
+| desconto_2             | desconto promocional especial do tipo 2                                           |
+| desconto_3             | desconto promocional especial do tipo 3                                           |
+| desconto_4             | desconto promocional especial do tipo 4                                           |
+| desconto_5             | desconto promocional especial do tipo 5                                           |
+| desemprego             | taxa média de desemprego do país na semana                                        |
+| feriado                | se há feriado ou não na semana                                                    |
+| distancia_competidores | distância média entre as lojas competidoras, em polegadas                         |
+| clientes               | quantidades de clientes presentes na loja, em média diária, durante aquela semana |
+
+**stores.csv**
+
+| **Feature** | **Description**                             |
+| ----------- | ------------------------------------------- |
+| loja        | identificador único da loja;                |
+| tipo        | eletrônico, eletrodomésticos ou acessórios; |
+| tamanho     | tamanho da loja, unidade não definida.      |
 
 ## 2.2 Premissas de Negócio
 
