@@ -8,9 +8,11 @@
 
 # Introdução
 
-Este é um projeto end-to-end de Data Science de um modelo de Classificação, cujo objetivo é oferecer a seus clientes de planos de saúde um novo produto: o seguro de automóveis. O principal objetivo do projeto é classificar os clientes com maior probabilidade de compra deste novo produto, de forma a otimizar a eficácia da equipa de vendas, fazendo apenas contatos com clientes com maior probabilidade de compra. As previsões podem ser acessadas pelo usuário através de uma planilha do Google Sheets, que ao executar o comando, ordena os cliente através da sua propensão de compra.
+Este é um projeto end-to-end de Data Science de um modelo de regressão adaptada para séries temporais. E foi proposto como problema de negócio para o Hackday 7 da Comunidade DS.
 
-Este repositório contém a solução para a resolução de uma problema do Kaggle: [https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction](https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction)
+O objetivo principal desse projeto é fazer a previsão das vendas semanais da última semana do ano da empresa Eletro Plaza, e como as últimas semanas do ano contém eventos como Black Friday e Natal, a métrica usada para rankear os melhores times na competição foi o RMSE, onde as 3 equipes com os menos valores do erro se classificavam para a final.
+
+Este repositório contém a solução para o problema do Kaggle (criado especificamente para o Hackday 7) que o time utilizou para chegar no TOP 3 da competição e se classificar para a final: [https://www.kaggle.com/competitions/test-hackday-7/overview](https://www.kaggle.com/competitions/test-hackday-7/overview)
 
 Esse projeto faz parte da "Comunidade DS", que é um ambiente de estudo que promove o aprendizado, execução, e discussão de projetos de Data Science.
 
@@ -29,6 +31,10 @@ Esse projeto foi desenvolvido seguindo o método CRISP-DS(Cross-Industry Standar
 
 ![crisp!](img/crisp.png)
 
+Nesse projeto em específico, como era voltado para a competição, o plano do time era fazer ciclos rápidos e gerar submissões para pontuar cada vez melhor na competição.
+
+Dessa forma, os capítulos de Avaliação dos Resultados do Modelo e Tradução para Negócio e Modelo em Produção não foram realizados durante a competição, pois o intuito era treinar o modelo e gerar um RMSE menor que o baseline proposto.
+
 ### Planejamento
 
 - [1. Descrição e Problema de Negócio](#1-descrição-e-problema-de-negócio)
@@ -37,10 +43,9 @@ Esse projeto foi desenvolvido seguindo o método CRISP-DS(Cross-Industry Standar
 - [4. Exploration Data Analysis](#4-exploration-data-analysis)
 - [5. Seleção do Modelo de Machine Learning](#5-seleção-do-modelo-de-machine-learning)
 - [6. Performance do Modelo](#6-performance-do-modelo)
-- [7. Resultados de Negócio](#7-resultados-de-negócio)
-- [8. Modelo em Produção](#8-modelo-em-produção)
-- [9. Conclusão](#9-conclusão)
-- [10. Aprendizados e Trabalhos Futuros](#10-aprendizados-e-trabalhos-futuros)
+- [7. Pontuação Final](#7-pontuação-final)
+- [8. Conclusão](#8-conclusão)
+- [9. Aprendizados e Trabalhos Futuros](#9-aprendizados-e-trabalhos-futuros)
 
 # 1. Descrição e Problema de Negócio
 
@@ -305,32 +310,7 @@ Com isso, podemos perceber:
 
 **- Dessa forma, caso a empresa tenha como objetivo alcançar 80% do total de interessados, no modelo proposto ela alcançará esse resultado com 38.104 ligações a menos que o modelo aletório, gerando muita economia e gastando menos tempo da sua equipe de vendas.**
 
-# 8. Modelo em Produção
-
-O modelo de Machine Learning foi implementado e colocado em produção por meio da plataforma Render (https://render.com), que tem como objetivo possibilitar a criação, execução e operação de aplicativos inteiramente localizados em nuvem.
-
-## Como acessar
-
-O modelo em produção mostra sua aplicabilidade através de uma planilha no Google Sheets. Nessa pasta ([LINK AQUI](https://drive.google.com/drive/folders/1L72w9z1WYvF5ydmMbkPtonF8WjBQqExv?usp=sharing)) há dois arquivos, o arquivo com os dados para inserir no Google Sheets, e a planilha em que ele deve ser adicionado.
-
-## Forma de Utilização:
-
-A ideia é colocar quaisquer linhas que deseja ordenar na planilha, e clicar no botão "Health Insurance - PA004", logo depois em "Get Prediction".
-Com isso, caso os dados tenham sido colocados da maneira correta, ele irá retornar uma nova coluna, na colna L, com o Score, ou seja, a propensão desse cliente se interessar pelo seguro de automóveis, além disso, a lista voltará já ordenada pelo score.
-
-Veja um vídeo do funcionamento.
-<br>
-
-<div align="center">
-<img src="img/googlesheets.gif" />
-</div><br>
-
-Caso tenha alguns desses problemas, faça:<br>
-
-- **O botão não apareceu** - Se o botão não apareceu, clique em "Extensões", depois em "Apps Script", e uma tela irá abrir com o código pronto. Clique em "Executar", volte a planilha e aguarde alguns segundos. Caso o código não apareça ao abrir o Apps Script, pode colar o código que está no arquivo "[googlesheet.gs](https://github.com/ian-alves-sousa/health_insurance_ordenation_prediction/blob/main/googlesheet.gs)", neste repositório.<br>
-- **Está ocorrendo um erro ao clicar no botão** - Pode ser algum tipo de dado errado, ou falta algum dados em alguma célula, dessa forma, entre em contato comigo através do [Linkedin](https://www.linkedin.com/in/ian-alves-sousa/), estou sempre a disposição.
-
-# 9. Conclusão
+# 8. Conclusão
 
 Neste projeto, todas as etapas necessárias foram realizadas para implementar um projeto completo de Ciência de Dados em um ambiente de produção. Foi utilizado o método de gerenciamento de projetos denominado CRISP-DM/DS e obteve-se um desempenho satisfatório utilizando o modelo Classificador XGBoost para ranquear os clientes com maior propensão de obtenção do novo seguro: o seguro de automóveis.
 
@@ -338,7 +318,7 @@ Alguns Business Insights foram gerados durante a Análise Exploratória de Dados
 
 Com o modelo em produção, a expectativa é que ele seja pelo menos 2,5x mais eficaz em fazer com que os clientes adquiram o novo produto de seguro de automóveis. Para atingir cerca de 80% dos interessados em adquirir o seguro auto é preciso atingir apenas 30% dos clientes da base de dados.
 
-# 10. Aprendizados e Trabalhos Futuros
+# 9. Aprendizados e Trabalhos Futuros
 
 **Aprendizados**
 
