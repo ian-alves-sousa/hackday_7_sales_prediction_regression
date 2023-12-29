@@ -75,13 +75,19 @@ Os gestores da EletroPlaza Store esperam poder:
 - Decidir se farão novos investimentos ou não;
 - Decidir onde devem alocar estes novos investimentos, mediante campanhas mais eficientes de marketing e vendas.
 
+### 1.4 Métrica de Avaliação
+
+A métrica de performance proposta para esse desafio é a raiz quadrada do erro quadrático médio (RMSE), que nada mais é o desvio padrão dos valores residuais, conforme mostra a Equação 1:
+
+![RMSE!](img/rmse.png)
+
+As três equipes que alcançarem o menor RMSE largam em vantagem e passarão para a próxima etapa.
+
 # 2. Base de Dados e Premissas de Negócio
 
 ## 2.1 Base de Dados
 
 O conjunto de dados total possui os seguintes arquivos:
-
-**Arquivos**
 
 - stores.csv - características das lojas
 - train.csv - dados de treino
@@ -132,6 +138,8 @@ Onde cada um apresenta as seguintes features:
 
 Nenhuma coluna foi excluida na análise do projeto. Cada linha representa um cliente e cada coluna contém alguns atributos que descrevem esse cliente, além de sua resposta à pesquisa, na qual ele mencionou seu interesse ou não em adquirir o novo produto de seguro.
 
+Para iniciar o projeto é necessário fazer uma junção (merge) dos 3 arquivos apresentados, dessa forma, criando um dataset único onde cada linha representa a venda semanal de um setor de uma loja específica, além de conter especificações da loja e informações complementares que podem ajudar e explicar a variável resposta como o preço do combustível na semana, a taxa de desemprego e principalmente o número de descontos.
+
 # 3. Estratégia de Solução
 
 A estratégia de solução foi a seguinte:
@@ -144,14 +152,21 @@ Nesse passo foi verificado alguns aspectos do conjunto de dados, como: nome de c
 
 Na featuring engineering foi derivado novos atributos(colunas) baseados nas variáveis originais, possibilitando uma melhor descrição do fenômeno daquela variável.
 
+As principais features criadas nessa etapa foram colunas derivando a data, como dia, mês, semana do mês e semana do ano, além de classificação da loja dependendo do seu tamanho e a soma dos descontos em apenas uma variável afim de diminuir a dimensionalidade do problema.
+
 ### Passo 03. Filtragem de Variáveis
 
-Verificando a necessidade de filtrar o conjunto de dados com base em uma variável que não interessa ao projeto em si.
+Verificando a necessidade de filtrar o conjunto de dados com base em uma variável que não interessa ao projeto em si. Onde nesse projeto em questão nenhuma variável foi deixada de lado.
 
 ### Passo 04. Análise Exploratória dos Dados (EDA)
 
 Exploração dos Dados com objetivo de encontrar Insights para o melhor entendimento do Negócio.
 Foram feitas também análises univariadas, bivariadas e multivariadas, obtendo algumas propriedades estatísticas que as descrevem, e mais importante respondendo perguntas sobre o negócio.
+
+Através dessa etapas conseguimos chegar em alguns pontos que nos ajudaram a fazer o modelo a performar melhor:
+
+- **Excluir as linhas com vendas semanais nulas ou menores que 1**: Onde essas eram linhas que não conseguiríamos prover, pois se tratam de casos onde os setores das lojas não tiveram vendas, ou tiveram devoluções e estornos. Assim, esse comportamento poderia enviezar o modelo, dessa forma, preferimos excluir essas linhas do dataset.
+- **Manter coluna dos descontos**: Haviam poucas semanas com desconto, e eram as últimas semanas do dataset, então no início pensamos em excluir essas colunas. Contudo, durante os eventos de Natal e Black Friday a estratégia dos descontos é muito utilizada para atrair e fidelizar clientes, assim, analisando o dataset de teste, vimos que várias linhas tinham dados de desconto. Decidimos então trabalhar com essa coluna e focar em ajudar ela a explicar o problema, visto que essa pode ser a feature que mais impacta no dataset de teste.
 
 ### Passo 05. Preparação dos Dados
 
@@ -159,27 +174,23 @@ Sessão que trata da preparação dos dados para que os algoritmos de Machine Le
 
 ### Passo 06. Seleção de Variáveis do Algoritmo
 
-A seleção dos atributos foi realizada utilizando o método de seleção de variáveis Boruta, sem muito efeito, dessa forma, foi realizado um estudo de importância das colunas, no qual os atributos mais significativos foram selecionados para que a performance do modelo fosse maximizada.
+Na seleção dos atributos foi realizado um estudo de importância das colunas, no qual os atributos mais significativos foram selecionados para um estudo mais aprofundado com intuito de gerar melhor entendimento e criar features que explicam melhor a variável resposta. Não houve fitragem de variáveis por se tratar de uma competição.
 
 ### Passo 07. Modelo de Machine Learning
 
-Realização do treinamento dos modelos de Machine Learning . O modelo que apresentou a melhor perfomance diante a base de dados com cross-validation aplicada seguiu adiante para a hiper parametrização das variáveis daquele modelo, visando otimizar a generalização do modelo.
+Realização do treinamento dos modelos de Machine Learning. O modelo que apresentou o menor RMSE diante a base de dados com cross-validation aplicada seguiu adiante para a hiper parametrização das variáveis daquele modelo, visando otimizar a generalização do modelo.
 
 ### Passo 08. Hyper Parameter Fine Tuning
 
 Foi encontrado os melhores parâmetros que maximizavam o aprendizado do modelo. Esses parâmetros foram definidos com base no método de RandomSearch.
 
-### Passo 09. Conversão do Desempenho do Modelo em Valor de Negócio
+### Passo 9. Deploy do Modelo em Produção
 
-Nesse passo o desempenho do modelo foi analisado mediante uma perspectiva de negócio,e traduzido para valores de negócio.
+Com o modelo e seus parâmetros escolhidos, o mesmo treinou a base completa dos dados (sem divisão de treino e teste) e foi usado para prever os valores para a submissão. Dessa forma, cada vez que um modelo era treinado e apresentava uma performance melhor (menor erro RMSE) o mesmo era usado para prever em cima dos dados de submissão e com isso o arquivo era enviado para o Kaggle.
 
-### Passo 10. Deploy do Modelo em Produção
+### Passo 10. Apresentação Final
 
-Publicação do modelo em um ambiente de produção em nuvem (Render) para que fosse possível o acesso de pessoas ou serviços para consulta dos resultados e com isso melhorar a decisão de negócio da empresa.
-
-### Passo 11. Google SpreadSheets
-
-Foi desenvolvido um script no Google Sheets em que os dados de entrada são os atributos e informações dos clientes e o resultado desse script é uma tabela com os atributos do cliente ordenado pela sua propensão a adquirir o novo seguro de automóvel.
+Como a equipe classificou-se para a final (ficamos no TOP 3), foi criado um slide com a explicação dos métodos utilizados para chegar na performance.
 
 # 4. Exploration Data Analysis
 
