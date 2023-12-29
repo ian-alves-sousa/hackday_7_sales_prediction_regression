@@ -244,7 +244,7 @@ O Modelo Final escolhido foi o XGBoost Classifier, devido ao seu melhor Recall c
 | ----------------- | ----------------- | ----------------- | -------------- | ------------- | ----------- |
 | **XGBClassifier** | **0.5015**        | **0.3361**        | **0.7253**     | **0.8607**    | **0.8779**  |
 
-# 7. Resultados de Negócio
+# 7. Pontuação Final
 
 Com base no método atual de previsão de ordenação de clientes é possível analisarmos a diferença de performance entre o modelo utilizado (Modelo Aleatório) e o modelo proposto XGBoost Classifier.
 
