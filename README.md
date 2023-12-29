@@ -3,7 +3,7 @@
 # Weekly Eletro Plaza Sales Forecasting
 
 <div align="center">
-<img src="img/img_capa" />
+<img src="img/img_capa.png" />
 </div>
 
 # Introdução
