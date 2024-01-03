@@ -302,7 +302,7 @@ Esse processo foi repetido durante os dois dias da competição. Ao criar uma no
 Assim, algumas ações foram feitas e testadas, segue abaixo o resultado prático:
 
 | **Ação** | **Resultado**                             |
-| ------------------------------------------------------------- | ------------------ |
+| ------------------------------------------- | ------------------------ |
 | Excluir os registros com vendas semanais nula ou menor que 1 | Melhorou a métrica                |
 | Retirar os descontos        | Piorou a métrica |
 | Preencher os registros com distância faltantes usando um número grande (sem concorrencia)| Métrica não mudou|
