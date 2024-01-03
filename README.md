@@ -297,7 +297,7 @@ Dessa forma, ambos os modelos passaram por um **HYPERPARAMETER FINE TUNING**, on
 
 Esse processo foi repetido durante os dois dias da competição. Ao criar uma nova feature ou gerar um novo Insight depois da Exploração dos Dados todo o modelo era treinado novamente e a métrica avaliada, caso o erro fosse menor que o da última submissão, uma nova tentativa era feita.
 
-# 7.1 Tentativas
+## 7.1 Tentativas
 
 Assim, algumas ações foram feitas e testadas, segue abaixo o resultado prático:
 
@@ -310,7 +310,30 @@ Assim, algumas ações foram feitas e testadas, segue abaixo o resultado prátic
 | Classificar as lojas pelo tamanho (grande, médio e pequeno)| Melhorou|
 | Somar os descontos em uma coluna| Melhorou|
 
+Assim, a ação que nos fez dar um salto na pontuação foi **Excluir os registros com vendas semanais nula ou menor que 1**.
 
+## 7.2 Insights Acionáveis
+
+Através do projeto e da análise alguns Insights Acionáveis foram criados:
+
+
+**Janeiro apresenta a pior média de vendas semanal e julho a melhor.**
+ - Com essa informação, podemos planejar promoções específicas ou lançamentos de produtos no mês de julho, visto que ele apresenta uma boa performance. Sobre janeiro, podemos identificar as campanhas e gerar estratégias de marketing como um saldão pós-ano novo para atrair os clientes e melhorar as vendas desse mês.
+
+**Eletrodomésticos têm vendas superiores a eletrônicos e outros tipos de produtos.**
+- Concentrar esforços de marketing e estoque em eletrodomésticos, talvez com promoções especiais ou pacotes que incluam esses produtos. Com isso, podemos ter um estoque adequado desses tipos de produto, visto que é o carro chefe da empresa e lidera nas vendas.
+
+## 7.3 Ranking Final
+
+A partir dessa construção e de todas as tentativas ficamos na terceira posição como o terceiro menor RMSE tanto no Leaderbord Público quanto Privado (que foi liberado apenas no final da competição):
+
+<p align="center">
+  <img src="img/FINAL.png" alt="FINAL">
+</p>
+
+E com esse resultado nos classificamos para a final, que ocorreu 3 dias depois, onde apresentamos o slide do link a seguir:
+
+[https://www.kaggle.com/competitions/test-hackday-7/overview](https://www.kaggle.com/competitions/test-hackday-7/overview)
 
 # 8. Conclusão
 
