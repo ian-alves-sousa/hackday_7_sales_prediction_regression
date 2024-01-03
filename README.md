@@ -200,163 +200,105 @@ Como a equipe classificou-se para a final (ficamos no TOP 3), foi criado um slid
 
 ## 4.2 Análise Bivariada
 
-### H2 - Pessoas mais velhas tem uma tendência maior de se interessarem pelo seguro.
+Por ser um Hackday, nessa etapa gerados hipoteses para validar, entender melhor o negócio e criar features ou filtrar os dados para melhorar o RMSE.
 
-**FALSO** Quanto maior a idade, MENOR a tendência de se interessar pelo seguro de automóveis.
+### H1 - Semanas com mais desconto tem maiores vendas semanais
 
-- Nos gráficos da 1ª linha podemos ver que a base apresenta uma maior quantidade de clientes entre 20 e 30 anos e mostra uma linha de tendência crescente, quanto maior a idade, menos amostrar na base.
-- Nos gráficos da 2ª linha podemos ver a relação da idade de clientes que aceitariam o seguro, com a predominância de clientes entre 40 e 50 anos, com uma linha de tendência decrescente, quanto maior a idade menos clientes.
-- Dessa forma, entre os clientes que aceitariam o seguro há uma predominância de clientes mais velhos, contudo, a linha de tendência mostra que quanto mais idade, há menos clientes que aceitariam o seguro.
+**VERDADEIRO** As semanas que apresentam descontos, apresentam também maiores vendas semanais.
+
+- No primeiro gráfico podemos ver que a frequência das vendas tem um pico no início, mas mostra um grupo de outliers com valores mais altos.
+- O mesmo acontece no segundo gráfico, onde vemos um grupo que se distancia bastante do terceiro quartil.
+- Isso pode evidenciar exatamento as semanas que apresentam desconto, e com isso, tem um comportamento mais atípico quando comparado com os demais meses do ano, mostrando assim a importância dessa coluna para a previsão das vendas semanais das últimas semanas do ano.
+
+
+![H1!](img/H1.png)
+
+### H5 - Junho é o mês com menor vendas semanais.
+
+**FALSO** - O mês com a menor média de vendas semanais é Janeiro e com a melhor é Julho. (De Janeiro a Outubro)
+
+- No gráfico podemos observar em vermelho as semanas do mês de Janeiro, evidenciando o mês com a menor média nas vendas semanais e o melhor mês em Julho.
+- Dessa forma, é justo imaginar que os clientes não compram em janeiro por estarem guardando o dinheiro do começo do ano para constas como IPTU e IPVA, além disso, eles podem ter usado os bônus de fim de ano para comprar exatamente onde queremos prever, a Balck Friday e o Natal, mostrando a importância do estudo.
 
 ![H2!](img/H2.png)
 
-### H5 - Quanto mais velho o veículo, maior a chance da pessoa se interessar pelo seguro.
+### H3 - Eletrodoméstico vende mais que Eletrônico.
 
-**VERDADEIRO** - A proproção de pessoas que se interessam pelo seguro é maior quando o veículo tem mais de 2 anos, portanto, quando mais velho o veículo, maior a chance da pessoa se interessar pelo seguro.
+**VERDADEIRO** - Eletrodomésticos apresentam vendas semanais maiores que eletrônicos.
 
-- No 1º gráfico observa-se que a quantidade de amostras de clientes com veículo com menos de um ano, e entre um ano e dois, são bem parecidos. A quantidade de clientes com veículos com mais d 2 anos é de 4,2%.
-- Entre aqueles que se interessam pelo seguro, há uma predominância de clientes com veículos entre um e dois anos. Contudo, a proporção de veículos com mais de dois anos apresentou um crescimento considerável.
-- No 3º gráfico vemos que a proporção de clientes interessados pelo seguro é maior naqueles que com veículos com mais de dois anos.
+- No gráfico observamos que os clientes tem preferência por comprar eletromésticos, sendo esse o tipo de produto que é a cara da EletroPlaza quando os clientes pensam na marca.
 
-![H5!](img/H5.png)
+![H3!](img/H3.png)
 
-### H7 - Quanto mais a pessoa paga de Annual Premium, maior a chance dela se interessar em ter um seguro.
+## 4.3 Análise Multivariada
 
-**FALSO** - Quanto mais a pessoa paga no Annual Premium, menos ela se interessa em adquirir o seguro.
+Essa etapa mostra como cada coluna do dataset está relacionada entre si e nos gera ideias para criar features e testar.
 
-- Na esquerda vemos os gráficos da relação da quantidade de clientes com o quanto pagam de Annual Premium.
-- Na direita vemos os gráficos da relação da quantidade de clientes que se interessam pelo com o quanto pagam de Annual Premium.
-- Os primeiros gráficos mostram o total de Annual Premium, os segundos dão um zoom nos que pagam menos que 100.000 e os terceiros gráficos mostram os que pagam mais que 100.000.
-- A maioria do clientes pagam menos que 55.000 de Annual Premium, e quanto mais os clientes pagam, menor a quantidade deles na base e menor o interesse no seguro de automóveis.
+![MAPA!](img/MAPA.png)
 
-![H7!](img/H7.png)
+Apesar da pouca correlação, através desse mapa de calor conseguimos destacar que algumas features apresentam as maiores relações com a nossa features preditiva:
+- Tamanho da loja;
+- Setor;
+- Loja/tipo.
 
-### H8 - Quanto maior o tempo que a pessoa tem o seguro de vida, maior a chance dela se interessar pelo seguro de carro.
+### 4.3.1 Features Importance
 
-**FALSO** - Depois de 15 dias, há uma tendência negativa, portanto, quanto maior o vintage, menor a chance da pessoa não se interessar pelo seguro de automóveis.
+Além disso, foi gerado um Feature Importance para entender quais features um modelo de árvore mais usaria para prever a variável resposta.
 
-- Nos gráficos da 1ª linha vemos a quantidade de clientes que se interessam pelo seguro segmentado por uma faixa de dias que tem o seguro se saúde.
-- Nos gráficos da 2ª linha mostra os mesmos valores, tirand os clientes com vintage entre 0 e 15 dias, que apresentam uma baixa quantidade na base e isso enviésa a análise.
-- Assim, percebemos que a quantidade de clientes em cada faixa de vintage é bem parecido, contudo, quando olhamos para a tendência do gráfico, vamos uma tendência de queda, onde, quando maior a faixa de vintagem, menos clientes se interessam pelo seguro.
+![FI!](img/FI.png)
 
-![H8!](img/H9.png)
-
-### Tabela de Insights
-
-| Hipóteses                                                                                                   | Condição   |
-| :---------------------------------------------------------------------------------------------------------- | :--------- |
-| H1 - Das pessoas interessadas no seguro, a maioria são homens.                                              | Verdadeira |
-| H2 - Pessoas mais velhas tem uma tendência maior de se interessarem pelo seguro.                            | Falsa      |
-| H3 - Das pessoas interessadas no seguro, a maioria tem licença para dirigir.                                | Verdadeira |
-| H4 - Das pessoas interessadas no seguro, a maioria tem licença para dirigir.                                | Verdadeira |
-| H5 - Quanto mais velho o veículo, maior a chance da pessoa se interessar pelo seguro.                       | Verdadeira |
-| H6 - Pessoas que sofreram batida de carro no passado, estão mais interessadas em adquirir o seguro.         | Verdadeira |
-| H7 - Quanto mais a pessoa paga de Anual Premium, maior a chance dela se interessar em ter um seguro.        | Falsa      |
-| H8 - Quanto maior o tempo que a pessoa tem o seguro de vida, maior a chance dela se interessar pelo seguro. | Falsa      |
+Percebemos assim que a **magnitude das vendas semanais está extremamante relacionada ao seu setor**, e o tamanho e tipo ta loja também influenciam na previsão.
 
 # 5. Seleção do Modelo de Machine Learning
 
 Os seguintes algoritmos de Machine Learning foram aplicados:
 
-- KNN Classifier;
-- Logistic Regression Classifier;
-- Extra Trees Classifier;
-- Random Forest Classifier;
-- XGBoost Forest Classifier;
-- Gaussian Naive Bayes;
+- Linear Regressor;
+- Linear Regressor - Lasso;
+- Linear Regressor - Ridge;
+- Linear Regressor - Elastic Net;
+- K-NearestNeighbors Regressor;
+- Random Forest Regressor;
+- Light Gradient Boosting Machine Regressor;
+- XGBoost Forest Regressor;
+- Gradient Boosting Regressor;
 
 O método de cross-validation foi utilizado em todos os modelos.
 
 # 6. Performance do Modelo
 
-Para medir o desempenho dos modelos, usaremos o método de validação cruzada que evita que o modelo seja superajustado quando o modelo recebe alguns dados que nunca viu antes (garantindo a generalização). O @K para as métricas da abordagem Ranking-To-Learn é 20.000, sendo a quantidade mínima de tentativas que a empresa quer fazer para atingir o máximo de acertos na base.
+Para medir o desempenho dos modelos, usaremos o método de validação cruzada que evita que o modelo seja superajustado quando o modelo recebe alguns dados que nunca viu antes (garantindo a generalização). 
 
 A real performance dos modelos utilizando método CROSS-VALIDATION.
 
-| Model Name             | Accuracy Balanced     | Precision @K Mean     | Recall @K Mean       | ROC AUC Score        | Top K Score           |
-| ---------------------- | --------------------- | --------------------- | -------------------- | -------------------- | --------------------- |
-| **XGBClassifier**      | **0.5367 +/- 0.0013** | **0.2988 +/- 0.0019** | **0.8005 +/- 0.005** | **0.839 +/- 0.0011** | **0.8686 +/- 0.0003** |
-| RandomForestClassifier | 0.5452 +/- 0.0013     | 0.2914 +/- 0.0015     | 0.7806 +/- 0.0039    | 0.8306 +/- 0.0009    | 0.865 +/- 0.0004      |
-| GaussianNB             | 0.784 +/- 0.0003      | 0.29 +/- 0.0021       | 0.7769 +/- 0.0056    | 0.8259 +/- 0.0021    | 0.6384 +/- 0.0002     |
-| ExtraTreesClassifier   | 0.5515 +/- 0.0018     | 0.2875 +/- 0.0017     | 0.7703 +/- 0.0046    | 0.825 +/- 0.0009     | 0.8599 +/- 0.0003     |
-| LogisticRegression     | 0.5 +/- 0.0           | 0.2754 +/- 0.0019     | 0.7379 +/- 0.005     | 0.817 +/- 0.0023     | 0.8776 +/- 0.0        |
-| KNeighborsClassifier   | 0.5489 +/- 0.0006     | 0.2743 +/- 0.0014     | 0.7349 +/- 0.0037    | 0.7811 +/- 0.0012    | 0.8609 +/- 0.0004     |
-
-Além do Cross-Validation, foi comparado o ganho de todos os modelos testados e o resultado pode ser visto na imagem abaixo:
-
 ![Comparação!](img/comparacao.png)
 
-O Modelo Final escolhido foi o XGBoost Classifier, devido ao seu melhor Recall com 20.000 tentativas e sua melhor performance para atingir um total de 80% de acertos. Os parâmetros da performance final estão abaixo.
+Como a competição nos instigava para encontrar o menor RMSE, essa foi a métrica que focamos melhorar. Assim, os modelos que apresentam o menor RMSE no Cross Validation foram:
+- Random Forest Regressor;
+- Light Gradient Boosting Machine Regressor;
 
-| Model Name        | Accuracy Balanced | Precision @K Mean | Recall @K Mean | ROC AUC Score | Top K Score |
-| ----------------- | ----------------- | ----------------- | -------------- | ------------- | ----------- |
-| **XGBClassifier** | **0.5015**        | **0.3361**        | **0.7253**     | **0.8607**    | **0.8779**  |
+Dessa forma, ambos os modelos passaram por um **HYPERPARAMETER FINE TUNING**, onde foram testados diversos pâmetros para esses modelos e os que apresentavam a melhor métrica após o  Cross Validation era usado para gerar o arquivo de submissão, segue abaixo um exemplo do quão perto os valores gerados foram.
+
+![RS!](img/RS.png)
 
 # 7. Pontuação Final
 
-Com base no método atual de previsão de ordenação de clientes é possível analisarmos a diferença de performance entre o modelo utilizado (Modelo Aleatório) e o modelo proposto XGBoost Classifier.
+Esse processo foi repetido durante os dois dias da competição. Ao criar uma nova feature ou gerar um novo Insight depois da Exploração dos Dados todo o modelo era treinado novamente e a métrica avaliada, caso o erro fosse menor que o da última submissão, uma nova tentativa era feita.
 
-Considerando o modelo aletório como a ordenação inicial da lista. A lista apresenta no total **9.526** clientes interessados em adquirir o seguro de automóveis.
+# 7.1 Tentativas
 
-## 7.1 Qual é a porcentagem de interesse dos clientes em adquirir um seguro de automóvel que a equipe de vendas conseguirá atingir com 20.000 ligações?
+Assim, algumas ações foram feitas e testadas, segue abaixo o resultado prático:
 
-Para responder essa pergunta foi plotado o a curva de ganho acumulado e a curva lift, destacando o ponto que representa 20.000 clientes do total da base.
+| **Ação** | **Resultado**                             |
+| ------------------------------------------------------------- | ------------------ |
+| Excluir os registros com vendas semanais nula ou menor que 1 | Melhorou a métrica                |
+| Retirar os descontos        | Piorou a métrica |
+| Preencher os registros com distância faltantes usando um número grande (sem concorrencia)| Métrica não mudou|
+| Criar colunas de dias e mês| Melhorou a métrica|
+| Classificar as lojas pelo tamanho (grande, médio e pequeno)| Melhorou a métrica|
+| Somar os descontos em uma coluna| Melhorou a métrica|
 
-![Q1!](img/q1.png)
 
-Através disso percebemos:
-
-**- Entrando em contato com os Top 20.000 clientes da lista (26,24% de toda a base), eu encontraria 72,53% de todos aqueles interessados pelo seguro.**
-
-**- Selecionando apenas os Top 20.000 clientes da lista, o modelo proposto é aproximadamente 2,75 melhor que o modelo aleatório.**
-
-Se considerarmos que o preço fixo do seguro é de U$ 2.000,00 por ano e não colocando na questão o custo de cada ligação para a empresa teremos os seguintes resultados:
-
-| Modelo                     | Pessoas Interessadas | % de Acertos | Receita         |
-| -------------------------- | -------------------- | ------------ | --------------- | -------------- |
-| Modelo Aleatório           | 2.448                | 26,45%       | U$4.895.653,00  |
-| XGBoost Classifier         | 6.713                | 72,53%       | U$13.426.593,00 |
-| Diferença entre os modelos | 4.265                | -----        | -----           | U$8.530.940,00 |
-
-**- Dessa forma, caso a empresa queira selecionar apenas os Top 20.000 da lista, o modelo proposta atinge 4.265 mais clientes interessados que o modelo aletório, gerando U$8,5 Milhões a mais de receita anual.**
-
-## 7.2 Qual é a porcentagem de interesse dos clientes em adquirir um seguro de automóvel que a equipe de vendas conseguirá atingir com 40.000 ligações?
-
-Para responder essa pergunta foi plotado o a curva de ganho acumulado e a curva lift, destacando o ponto que representa 40.000 clientes do total da base.
-
-![Q2!](img/q2.png)
-
-Através disso percebemos:
-
-**- Entrando em contato com os Top 40.000 clientes da lista (52,48% de toda a base), eu encontraria 99,34% de todos aqueles interessados pelo seguro.**
-
-**- Selecionando apenas os Top 40.000 clientes da lista, o modelo proposto é aproximadamente 1,9 melhor que o modelo aleatório.**
-
-Se considerarmos que o preço fixo do seguro é de U$ 2.000,00 por ano e não colocando na questão o custo de cada ligação para a empresa teremos os seguintes resultados:
-
-| Modelo                     | Pessoas Interessadas | % de Acertos | Receita         |
-| -------------------------- | -------------------- | ------------ | --------------- | -------------- |
-| Modelo Aleatório           | 4.825                | 52,13%       | U$9.649.490,00  |
-| XGBoost Classifier         | 9.195                | 99,34%       | U$18.390.158,00 |
-| Diferença entre os modelos | 4.370                | -----        | -----           | U$8.740.668,00 |
-
-**- Dessa forma, caso a empresa queira selecionar apenas os Top 40.000 da lista, o modelo proposta atinge 4.370 mais clientes interessados que o modelo aletório, gerando U$8,7 Milhões a mais de receita anual.**
-
-## 7.3 Quantas ligações a equipe de vendas precisa para atingir 80% dos clientes interessados em contratar um seguro de automóvel?
-
-Para responder essa pergunta o contrário foi feito. A priori podemos observar a curva de ganho com a marcação no ganho de 80%, conrrespondendo a 30,25% do total da base.
-
-![Q3!](img/q3.png)
-
-Com isso, podemos perceber:
-
-| Modelo                     | Qtde de ligações | % da Base |
-| -------------------------- | ---------------- | --------- |
-| Modelo Aleatório           | 61.161           | 80,24%    |
-| XGBoost Classifier         | 23.057           | 30,25%    |
-| Diferença entre os modelos | 38.104           | -----     |
-
-**- Dessa forma, caso a empresa tenha como objetivo alcançar 80% do total de interessados, no modelo proposto ela alcançará esse resultado com 38.104 ligações a menos que o modelo aletório, gerando muita economia e gastando menos tempo da sua equipe de vendas.**
 
 # 8. Conclusão
 
