@@ -79,7 +79,9 @@ Os gestores da EletroPlaza Store esperam poder:
 
 A métrica de performance proposta para esse desafio é a raiz quadrada do erro quadrático médio (RMSE), que nada mais é o desvio padrão dos valores residuais, conforme mostra a Equação 1:
 
-![RMSE!](img/rmse.png)
+<p align="center">
+  <img src="img/rmse.png" alt="RMSE">
+</p>
 
 As três equipes que alcançarem o menor RMSE largam em vantagem e passarão para a próxima etapa.
 
@@ -236,7 +238,9 @@ Por ser um Hackday, nessa etapa gerados hipoteses para validar, entender melhor 
 
 Essa etapa mostra como cada coluna do dataset está relacionada entre si e nos gera ideias para criar features e testar.
 
-![MAPA!](img/MAPA.png)
+<p align="center">
+  <img src="img/MAPA.png" alt="MAPA">
+</p>
 
 Apesar da pouca correlação, através desse mapa de calor conseguimos destacar que algumas features apresentam as maiores relações com a nossa features preditiva:
 - Tamanho da loja;
@@ -247,7 +251,9 @@ Apesar da pouca correlação, através desse mapa de calor conseguimos destacar 
 
 Além disso, foi gerado um Feature Importance para entender quais features um modelo de árvore mais usaria para prever a variável resposta.
 
-![FI!](img/FI.png)
+<p align="center">
+  <img src="img/FI.png" alt="FI">
+</p>
 
 Percebemos assim que a **magnitude das vendas semanais está extremamante relacionada ao seu setor**, e o tamanho e tipo ta loja também influenciam na previsão.
 
@@ -273,7 +279,9 @@ Para medir o desempenho dos modelos, usaremos o método de validação cruzada q
 
 A real performance dos modelos utilizando método CROSS-VALIDATION.
 
-![Comparação!](img/comparacao.png)
+<p align="center">
+  <img src="img/comparacao.png" alt="Comparação">
+</p>
 
 Como a competição nos instigava para encontrar o menor RMSE, essa foi a métrica que focamos melhorar. Assim, os modelos que apresentam o menor RMSE no Cross Validation foram:
 - Random Forest Regressor;
@@ -281,7 +289,9 @@ Como a competição nos instigava para encontrar o menor RMSE, essa foi a métri
 
 Dessa forma, ambos os modelos passaram por um **HYPERPARAMETER FINE TUNING**, onde foram testados diversos pâmetros para esses modelos e os que apresentavam a melhor métrica após o  Cross Validation era usado para gerar o arquivo de submissão, segue abaixo um exemplo do quão perto os valores gerados foram.
 
-![RS!](img/RS.png)
+<p align="center">
+  <img src="img/RS.png" alt="RS">
+</p>
 
 # 7. Pontuação Final
 
