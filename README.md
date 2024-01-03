@@ -1,5 +1,3 @@
---MUDAR TODO O READ ME
-
 # Weekly Eletro Plaza Sales Forecasting
 
 <div align="center">
