@@ -333,7 +333,7 @@ A partir dessa construção e de todas as tentativas ficamos na terceira posiç�
 
 E com esse resultado nos classificamos para a final, que ocorreu 3 dias depois, onde apresentamos o slide do link a seguir:
 
-[Apresentação Final](https://github.com/ian-alves-sousa/hackday_7_sales_prediction_regression/blob/main/Apresentação_%20Eletro%20Plaza%20Store.pdf){:target="_blank"}
+<a href="https://github.com/ian-alves-sousa/hackday_7_sales_prediction_regression/blob/main/Apresentação_%20Eletro%20Plaza%20Store.pdf" target="_blank">Apresentação Final</a>
 
 O contexto do Grinch é que as duas outras equipes que se classificaram para a final tinham nome relacionado ao Natal, dessa forma, fomos para acabar com a comemoração.
 
