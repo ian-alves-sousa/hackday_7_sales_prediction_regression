@@ -46,6 +46,7 @@ Dessa forma, os capítulos de Avaliação dos Resultados do Modelo e Tradução 
 - [7. Pontuação Final](#7-pontuação-final)
 - [8. Conclusão](#8-conclusão)
 - [9. Aprendizados e Trabalhos Futuros](#9-aprendizados-e-trabalhos-futuros)
+- [10. Composição do Time](#10-composição-do-time)
 
 # 1. Descrição e Problema de Negócio
 
@@ -339,25 +340,36 @@ O contexto do Grinch é que as duas outras equipes que se classificaram para a f
 
 # 8. Conclusão
 
-Neste projeto, todas as etapas necessárias foram realizadas para implementar um projeto completo de Ciência de Dados em um ambiente de produção. Foi utilizado o método de gerenciamento de projetos denominado CRISP-DM/DS e obteve-se um desempenho satisfatório utilizando o modelo Classificador XGBoost para ranquear os clientes com maior propensão de obtenção do novo seguro: o seguro de automóveis.
+Neste projeto, todas as etapas necessárias foram realizadas para implementar um projeto completo de Ciência de Dados em uma competição de dados. Foi utilizado o método de gerenciamento de projetos denominado CRISP-DM/DS e obteve-se a terceira menor métrica (RMSE) que levou a equipe para a final do Hackday 7 da Comunidade DS.
 
-Alguns Business Insights foram gerados durante a Análise Exploratória de Dados que ajudaram o CEO, a equipe de negócios e o cientista de dados a entender melhor o negócio. Diante desses resultados, o projeto atingiu seu objetivo de encontrar uma solução assertiva de ranqueamento de clientes de forma a otimizar a eficácia da equipe de vendas no contato com seus clientes.
-
-Com o modelo em produção, a expectativa é que ele seja pelo menos 2,5x mais eficaz em fazer com que os clientes adquiram o novo produto de seguro de automóveis. Para atingir cerca de 80% dos interessados em adquirir o seguro auto é preciso atingir apenas 30% dos clientes da base de dados.
+Tendo em vista esses resultados, o projeto alcançou seu objetivo de encontrar uma solução simples e assertiva para previsão de vendas semanais, realizando o projeto em apenas dois dias. E o principal foi melhorar 283% nesse meio tempo.
 
 # 9. Aprendizados e Trabalhos Futuros
 
 **Aprendizados**
 
-- Esse problema de classificação foi resolvido de uma forma diferente dos normais problemas desse tipo, ao invés de classificar os resultados, utilizamos uma abordagem de Learn To Rank, afim de ordenar os clientes baseado em sua propensão para se interessar ao novo produto.
+- Esse problema de regressão no Hackday 7 teve um formato diferente, onde os dados estavam com muitos valores faltantes, e uma análise de dados bem feita seria crucial para conseguir os resultados. Isso nos mostrou a importância de entender o contexto do negócio e os dados para a construção do projeto.
 
-- Como é uma abordagem diferente, outras métricas foram aplicadas aos modelos, e apesar de seus resultados aproximados, o escolhido foi o que apreentou a melhor performance para resolver o problema de negócios. Assim, o aprendizado nesse quesito foi, mesmo que as métricas sejam boas, o melhor modelo será aquele que resolve melhor o problema, que nesse caso era atingir o máximo de clientes interessados dos Top 20.000 clintes da base.
+- Assim, a Análise Exploratória de Dados se demonstrou uma das etapas mais importantes do projeto, pois é nessa parte que podemos encontrar Insights de Negócio que promovem novos conhecimentos e até contradições que nos fazem repensar o negócio como um tudo. E através dela que tivemos as ideias para filtragem e criação de features.
 
-- A Análise Exploratória de Dados se demonstrou uma das etapas mais importantes do projeto, pois é nessa parte que podemos encontrar Insights de Negócio que promovem novos conhecimentos e até contradições que nos fazem repensar o negócio como um tudo. Essa análise também fornece ao cientista de dados uma "direção" de como melhorar seu modelo, por meio da criação de novas features e diferentes tipos de abordagem.
+- Com pouco tempo para testes, uma boa organização supera a falta de conhecimento. Foi com uma boa divisão de tarefas que o time conseguiu concluir todas as etapas do projeto.
 
 **Trabalhos Futuros**
 
 - Criar novas features, afim de explicar com mais eficiência o os fenômenos do problema e consequentemente gerar resultados melhores.
 - Testar diferentes Encoders na preperação dos dados.
 - Aplicar o balanceamento dos dados e entender como isso influencia na resolução desse problema.
-- Gerar mais insights relacionando diferentes colunas, isso ajudará a criar novas features.
+- Traduzir os valores dos erros em US$, contendo o melhor e o pior cenário por loja, para melhor visualização e análise do time de negócio;
+- Aprofundar a compreensão do desempenho das lojas com base em seus tipos específicos de produtos, especialmente as lojas de eletrodomésticos. O objetivo é extrair insights que nos permitam otimizar a alocação de recursos, concentrando nossos esforços em áreas estratégicas que impulsionem o desempenho global da EletroPlaza Store.
+
+# 10. Composição do Time
+
+Christiano Bruneli Peres
+<a href="https://www.linkedin.com/in/christianods/" target="_blank">Christiano Bruneli Peres</a>
+
+Ian Alves Sousa
+<a href="https://www.linkedin.com/in/ian-alves-sousa/" target="_blank">Ian Alves Sousa</a>
+
+Paula Wehdorn Wildemberg
+Victor Bongestab
+Vinicius Gasperazzo Rosa
