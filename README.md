@@ -196,9 +196,9 @@ Como a equipe classificou-se para a final (ficamos no TOP 3), foi criado um slid
 
 - Variáveis Numéricas: o histograma abaixo mostra como está organizada a distribuição das variáveis numéricas do nosso conjunto de dados. Mostra a contagem de cada variável numérica do dataset.
 
-<div style="text-align:center">
-    ![Numerical-Variables](img/uni.png)
-</div>
+<p align="center">
+  <img src="img/uni.png" alt="Numerical-Variables">
+</p>
 
 ## 4.2 Análise Bivariada
 
