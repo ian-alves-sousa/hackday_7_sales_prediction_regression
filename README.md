@@ -364,8 +364,8 @@ Tendo em vista esses resultados, o projeto alcançou seu objetivo de encontrar u
 
 # 10. Composição do Time
 
-<a href="https://www.linkedin.com/in/christianods/" target="_blank">Christiano Bruneli Peres</a>
-<a href="https://www.linkedin.com/in/ian-alves-sousa/" target="_blank">Ian Alves Sousa</a>
-<a href="https://www.linkedin.com/in/paulawehdorn/" target="_blank">Paula Wehdorn Wildemberg</a>
-<a href="https://www.linkedin.com/in/victor-bongestab/" target="_blank">Victor Bongestab</a>
+<a href="https://www.linkedin.com/in/christianods/" target="_blank">Christiano Bruneli Peres</a><br>
+<a href="https://www.linkedin.com/in/ian-alves-sousa/" target="_blank">Ian Alves Sousa</a><br>
+<a href="https://www.linkedin.com/in/paulawehdorn/" target="_blank">Paula Wehdorn Wildemberg</a><br>
+<a href="https://www.linkedin.com/in/victor-bongestab/" target="_blank">Victor Bongestab</a><br>
 <a href="https://www.linkedin.com/in/vinicius-gasperazzo-rosa/" target="_blank">Vinicius Gasperazzo Rosa</a>
